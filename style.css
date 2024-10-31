@@ -84,18 +84,20 @@ footer {
   bottom: 0;
   width: 100%;
 }
-/* Galeria de imagens lado a lado */
+/* Galeria de imagens com layout de grade uniforme */
 .image-gallery {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 imagens por linha */
   gap: 1rem;
   margin: 2rem auto;
-  max-width: 80%;
+  max-width: 90%;
+  padding: 0 1rem;
 }
 
 .image-gallery img {
   width: 100%;
-  max-width: 200px;
+  height: 200px; /* Altura fixa para uniformidade */
+  object-fit: cover; /* Ajusta a imagem para preencher o contêiner */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
@@ -103,4 +105,23 @@ footer {
 
 .image-gallery img:hover {
   transform: scale(1.05);
+}
+
+/* Estilos responsivos para dispositivos menores */
+@media (max-width: 1024px) {
+  .image-gallery {
+      grid-template-columns: repeat(3, 1fr); /* 3 imagens por linha em telas médias */
+  }
+}
+
+@media (max-width: 768px) {
+  .image-gallery {
+      grid-template-columns: repeat(2, 1fr); /* 2 imagens por linha em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-gallery {
+      grid-template-columns: 1fr; /* 1 imagem por linha em dispositivos muito pequenos */
+  }
 }
