@@ -154,3 +154,26 @@ footer {
   object-fit: cover;
   border-radius: 8px;
 }
+/* Estilo do cometa */
+.cometa {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #ffffff 40%, #ffaf7b 60%, rgba(255, 175, 123, 0));
+  box-shadow: -30px -10px 20px rgba(255, 175, 123, 0.7); /* Cauda do cometa */
+  transform: rotate(45deg); /* Inclinação da cauda */
+  z-index: 100;
+}
+
+/* Estilo da cauda */
+.cauda {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 175, 123, 0.5), transparent);
+  opacity: 0.7;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  z-index: 99;
+}
