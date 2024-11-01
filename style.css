@@ -125,3 +125,32 @@ footer {
       grid-template-columns: 1fr; /* 1 imagem por linha em dispositivos muito pequenos */
   }
 }
+
+/* Centralizar a seção dos signos */
+.signos-section {
+  max-width: 90%;
+  margin: 0 auto;  /* Centraliza horizontalmente */
+  text-align: center;
+  padding-top: 2rem; /* Espaço superior para centralizar verticalmente */
+}
+
+/* Estilo de cada signo */
+.signo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centraliza o conteúdo de cada signo */
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 1rem auto;
+  max-width: 250px;  /* Define uma largura máxima para centralizar cada signo */
+  transition: transform 0.3s;
+}
+
+.signo img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
