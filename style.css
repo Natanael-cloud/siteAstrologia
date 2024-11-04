@@ -12,6 +12,9 @@ body {
   color: #f3e9dc;
   overflow-x: hidden;
 }
+h1 {
+  text-align: center;
+}
 
 /* Estrelas de fundo */
 .star {
@@ -130,7 +133,7 @@ footer {
 .signos-section {
   max-width: 90%;
   margin: 0 auto;  /* Centraliza horizontalmente */
-  text-align: center;
+  text-align: justify;
   padding-top: 2rem; /* Espaço superior para centralizar verticalmente */
 }
 
@@ -176,4 +179,49 @@ footer {
   opacity: 0.7;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   z-index: 99;
+}
+
+
+/* Mapa Astral */
+.mapa-astral-section {
+  text-align: center;
+  padding: 2rem 0;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.mapa-signos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.mapa-signo {
+  width: 250px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mapa-signo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para as imagens dos signos */
+.mapa-signo img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mapa-signo img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(255, 175, 123, 0.5);
 }
