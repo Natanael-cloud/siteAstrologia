@@ -1,78 +1,87 @@
 // Função para criar estrelas de fundo animadas
 function createStar() {
-  const star = document.createElement('div');
-  star.classList.add('star');
-  document.body.appendChild(star);
+    // Cria um elemento <div> que representará a estrela
+    const star = document.createElement('div');
+    // Adiciona a classe 'star' ao elemento, para aplicar o estilo
+    star.classList.add('star');
+    // Adiciona o elemento de estrela ao corpo do documento (página)
+    document.body.appendChild(star);
 
-  // Posição aleatória das estrelas
-  const x = Math.random() * window.innerWidth;
-  const y = Math.random() * window.innerHeight;
-  star.style.left = `${x}px`;
-  star.style.top = `${y}px`;
+    // Gera uma posição aleatória dentro da janela para a estrela
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    // Define a posição da estrela usando as coordenadas calculadas
+    star.style.left = `${x}px`;
+    star.style.top = `${y}px`;
 
-  // Remover a estrela após um tempo para manter o desempenho
-  setTimeout(() => star.remove(), 3000);
+    // Remove a estrela após 3 segundos para evitar excesso de elementos e melhorar o desempenho
+    setTimeout(() => star.remove(), 3000);
 }
 
-// Criar várias estrelas de fundo
+// Cria várias estrelas chamando a função `createStar` a cada 100 ms
 setInterval(createStar, 100);
 
-// Função para criar o cometa e sua animação
+// Função para criar o cometa e sua animação com cauda
 function criarCometaComCauda() {
-  const cometa = document.createElement('div');
-  cometa.classList.add('cometa');
-  document.body.appendChild(cometa);
+    // Cria um elemento <div> para representar o cometa
+    const cometa = document.createElement('div');
+    // Adiciona a classe 'cometa' ao cometa para aplicar o estilo
+    cometa.classList.add('cometa');
+    // Adiciona o cometa ao corpo do documento
+    document.body.appendChild(cometa);
 
-  // Função para criar o efeito da cauda
-  function criarCauda() {
-      const cauda = document.createElement('div');
-      cauda.classList.add('cauda');
-      document.body.appendChild(cauda);
+    // Função para criar o efeito de cauda do cometa
+    function criarCauda() {
+        // Cria um elemento <div> para a cauda do cometa
+        const cauda = document.createElement('div');
+        // Adiciona a classe 'cauda' para o estilo da cauda
+        cauda.classList.add('cauda');
+        // Adiciona a cauda ao documento
+        document.body.appendChild(cauda);
 
-      // Posiciona a cauda onde o cometa está no momento
-      const { top, left } = cometa.getBoundingClientRect();
-      cauda.style.top = `${top}px`;
-      cauda.style.left = `${left}px`;
+        // Define a posição da cauda baseada na posição atual do cometa
+        const { top, left } = cometa.getBoundingClientRect();
+        cauda.style.top = `${top}px`;
+        cauda.style.left = `${left}px`;
 
-      // Remove a cauda gradualmente para criar o efeito de rastro
-      setTimeout(() => {
-          cauda.remove();
-      }, 500); // A cauda desaparece após 500ms
-  }
+        // Remove a cauda após 500ms para criar o efeito de rastro
+        setTimeout(() => cauda.remove(), 500);
+    }
 
-  // Anima o cometa através da tela
-  const iniciarCometa = () => {
-      cometa.style.top = `${Math.random() * 80}vh`; // Posição aleatória vertical
-      cometa.style.left = `-100px`; // Começa fora da tela, à esquerda
+    // Anima o cometa para atravessar a tela
+    const iniciarCometa = () => {
+        cometa.style.top = `${Math.random() * 80}vh`; // Posição vertical aleatória
+        cometa.style.left = `-100px`; // Inicia fora da tela, à esquerda
 
-      // Animação do cometa
-      cometa.animate([
-          { transform: 'translateX(0)' },
-          { transform: 'translateX(110vw)' } // Move para fora da tela à direita
-      ], {
-          duration: 5000, // Duração da animação
-          easing: 'linear', // Movimento linear
-          iterations: 1
-      }).onfinish = iniciarCometa; // Reinicia a animação
+        // Animação que move o cometa da esquerda para a direita
+        cometa.animate([
+            { transform: 'translateX(0)' },
+            { transform: 'translateX(110vw)' }
+        ], {
+            duration: 5000, // Duração da animação em milissegundos
+            easing: 'linear', // Animação com movimento linear
+            iterations: 1
+        }).onfinish = iniciarCometa; // Reinicia a animação
 
-      // Cria a cauda a cada 100ms para simular o rastro
-      setInterval(criarCauda, 100);
-  };
+        // Cria a cauda a cada 100ms para simular o rastro do cometa
+        setInterval(criarCauda, 100);
+    };
 
-  iniciarCometa();
+    iniciarCometa();
 }
 
-// Inicia o cometa ao carregar a página
+// Inicia o cometa automaticamente ao carregar a página
 window.onload = criarCometaComCauda;
-
 
 // Função para calcular o signo solar com base na data de nascimento fornecida
 function calcularSignoSolar(dataNascimento) {
-    const data = new Date(dataNascimento); // Converte a data de nascimento em um objeto Date
-    const dia = data.getDate() + 1; // Obtém o dia do mês e adiciona 1 para correção
-    const mes = data.getMonth() + 1; // Obtém o mês e adiciona 1 para correção
+    // Converte a data de nascimento em um objeto Date
+    const data = new Date(dataNascimento);
+    // Obtém o dia e o mês da data fornecida
+    const dia = data.getDate() + 1;
+    const mes = data.getMonth() + 1;
 
-    // Verifica qual signo corresponde à data fornecida com base no intervalo de dias e meses
+    // Verifica o signo correspondente com base no intervalo de datas
     if ((mes == 3 && dia >= 21) || (mes == 4 && dia <= 19)) return "Áries";
     if ((mes == 4 && dia >= 20) || (mes == 5 && dia <= 20)) return "Touro";
     if ((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) return "Gêmeos";
@@ -87,25 +96,25 @@ function calcularSignoSolar(dataNascimento) {
     if ((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) return "Peixes";
 }
 
-// Função para calcular o signo lunar baseado no dia do nascimento (simplificação)
+// Função para calcular o signo lunar com base no dia de nascimento (simplificação)
 function calcularSignoLua(dataNascimento) {
-    const dia = new Date(dataNascimento).getDate(); // Extrai o dia da data de nascimento
+    const dia = new Date(dataNascimento).getDate();
     const luas = ["Áries", "Touro", "Gêmeos", "Câncer", "Leão", "Virgem", "Libra", "Escorpião", "Sagitário", "Capricórnio", "Aquário", "Peixes"];
     
-    // Retorna um signo lunar baseado no dia do mês, utilizando uma abordagem simplificada
+    // Retorna um signo lunar usando o índice do dia do mês
     return luas[dia % 12];
 }
 
-// Função para calcular o ascendente com base na hora de nascimento
+// Função para calcular o ascendente baseado na hora de nascimento
 function calcularAscendente(horaNascimento) {
-    const hora = parseInt(horaNascimento.split(':')[0], 10); // Extrai a hora do campo de hora de nascimento
+    const hora = parseInt(horaNascimento.split(':')[0], 10);
     const ascendentes = ["Áries", "Touro", "Gêmeos", "Câncer", "Leão", "Virgem", "Libra", "Escorpião", "Sagitário", "Capricórnio", "Aquário", "Peixes"];
     
-    // Divide o dia em intervalos de 2 horas para cada signo e retorna o ascendente correspondente
+    // Divide as horas em intervalos de 2 para cada signo
     return ascendentes[Math.floor(hora / 2) % 12];
 }
 
-// Função principal para gerar o mapa astral e exibir os resultados
+// Função para gerar e exibir o mapa astral
 function gerarMapaAstral() {
     // Coleta os dados de entrada do usuário
     const nome = document.getElementById('nome').value;
@@ -115,37 +124,35 @@ function gerarMapaAstral() {
 
     // Verifica se os campos obrigatórios foram preenchidos
     if (!nome || !dataNascimento || !horaNascimento || !localNascimento) {
-        alert("Por favor, preencha todos os campos obrigatórios."); // Exibe alerta se algum campo estiver vazio
-        return; // Encerra a função caso faltem informações
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
     }
 
-    // Calcula o signo solar, o signo lunar e o ascendente usando as funções definidas anteriormente
+    // Calcula os signos solar, lunar e o ascendente
     const signoSolar = calcularSignoSolar(dataNascimento);
     const signoLua = calcularSignoLua(dataNascimento);
     const ascendente = calcularAscendente(horaNascimento);
 
-    // Obtém descrições para cada signo chamando a função getDescricaoSigno
+    // Obtém descrições para cada signo
     const descricaoSolar = getDescricaoSigno(signoSolar);
     const descricaoLua = getDescricaoSigno(signoLua);
     const descricaoAscendente = getDescricaoSigno(ascendente);
 
-    // Obtém o elemento onde os resultados serão exibidos e insere o resultado formatado
+    // Exibe o resultado no elemento HTML 'resultadoMapaAstral'
     const resultadoDiv = document.getElementById('resultadoMapaAstral');
     resultadoDiv.innerHTML = `
         <h2>Mapa Astral de ${nome}</h2>
         <p><strong>Data de Nascimento:</strong> ${dataNascimento}</p>
         <p><strong>Hora de Nascimento:</strong> ${horaNascimento}</p>
         <p><strong>Local de Nascimento:</strong> ${localNascimento}</p>
-
         <p><strong>Signo Solar:</strong> ${signoSolar} - ${descricaoSolar}</p>
         <p><strong>Signo Lunar:</strong> ${signoLua} - ${descricaoLua}</p>
         <p><strong>Ascendente:</strong> ${ascendente} - ${descricaoAscendente}</p>
     `;
 }
 
-// Função para retornar uma breve descrição com base no signo fornecido
+// Função para retornar uma breve descrição para o signo fornecido
 function getDescricaoSigno(signo) {
-    // Define um objeto com descrições para cada signo
     const descricoes = {
         "Áries": "Signo de Fogo, caracterizado pela iniciativa e coragem.",
         "Touro": "Signo de Terra, valorizador da estabilidade e conforto.",
@@ -161,6 +168,6 @@ function getDescricaoSigno(signo) {
         "Peixes": "Signo de Água, sensível e compassivo."
     };
 
-    // Retorna a descrição do signo ou uma mensagem padrão se o signo não for encontrado
+    // Retorna a descrição do signo ou uma mensagem padrão
     return descricoes[signo] || "Descrição não disponível.";
 }
