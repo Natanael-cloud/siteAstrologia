@@ -68,14 +68,11 @@ window.onload = criarCometaComCauda;
 
 // Função para calcular o signo solar com base na data de nascimento fornecida
 function calcularSignoSolar(dataNascimento) {
-    // Converte a data de nascimento para um objeto Date do JavaScript
-    const data = new Date(dataNascimento);
+    const data = new Date(dataNascimento); // Converte a data de nascimento em um objeto Date
+    const dia = data.getDate() + 1; // Obtém o dia do mês e adiciona 1 para correção
+    const mes = data.getMonth() + 1; // Obtém o mês e adiciona 1 para correção
 
-    // Extrai o dia e o mês da data de nascimento
-    const dia = data.getDate() + 1; // Ajuste do dia para compensar o início do mês em 0
-    const mes = data.getMonth() + 1; // Ajuste do mês para compensar que o mês começa em 0 no JavaScript
-
-    // Verifica o intervalo de cada signo e retorna o nome correspondente
+    // Verifica qual signo corresponde à data fornecida com base no intervalo de dias e meses
     if ((mes == 3 && dia >= 21) || (mes == 4 && dia <= 19)) return "Áries";
     if ((mes == 4 && dia >= 20) || (mes == 5 && dia <= 20)) return "Touro";
     if ((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) return "Gêmeos";
@@ -90,38 +87,65 @@ function calcularSignoSolar(dataNascimento) {
     if ((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) return "Peixes";
 }
 
-// Função principal para gerar o mapa astral
+// Função para calcular o signo lunar baseado no dia do nascimento (simplificação)
+function calcularSignoLua(dataNascimento) {
+    const dia = new Date(dataNascimento).getDate(); // Extrai o dia da data de nascimento
+    const luas = ["Áries", "Touro", "Gêmeos", "Câncer", "Leão", "Virgem", "Libra", "Escorpião", "Sagitário", "Capricórnio", "Aquário", "Peixes"];
+    
+    // Retorna um signo lunar baseado no dia do mês, utilizando uma abordagem simplificada
+    return luas[dia % 12];
+}
+
+// Função para calcular o ascendente com base na hora de nascimento
+function calcularAscendente(horaNascimento) {
+    const hora = parseInt(horaNascimento.split(':')[0], 10); // Extrai a hora do campo de hora de nascimento
+    const ascendentes = ["Áries", "Touro", "Gêmeos", "Câncer", "Leão", "Virgem", "Libra", "Escorpião", "Sagitário", "Capricórnio", "Aquário", "Peixes"];
+    
+    // Divide o dia em intervalos de 2 horas para cada signo e retorna o ascendente correspondente
+    return ascendentes[Math.floor(hora / 2) % 12];
+}
+
+// Função principal para gerar o mapa astral e exibir os resultados
 function gerarMapaAstral() {
-    // Captura os valores dos campos do formulário
+    // Coleta os dados de entrada do usuário
     const nome = document.getElementById('nome').value;
     const dataNascimento = document.getElementById('dataNascimento').value;
     const horaNascimento = document.getElementById('horaNascimento').value;
     const localNascimento = document.getElementById('localNascimento').value;
 
     // Verifica se os campos obrigatórios foram preenchidos
-    if (!nome || !dataNascimento || !localNascimento) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
-        return; // Sai da função se houver campos obrigatórios em branco
+    if (!nome || !dataNascimento || !horaNascimento || !localNascimento) {
+        alert("Por favor, preencha todos os campos obrigatórios."); // Exibe alerta se algum campo estiver vazio
+        return; // Encerra a função caso faltem informações
     }
 
-    // Calcula o signo solar usando a data de nascimento
+    // Calcula o signo solar, o signo lunar e o ascendente usando as funções definidas anteriormente
     const signoSolar = calcularSignoSolar(dataNascimento);
+    const signoLua = calcularSignoLua(dataNascimento);
+    const ascendente = calcularAscendente(horaNascimento);
 
-    // Exibe o resultado do mapa astral
+    // Obtém descrições para cada signo chamando a função getDescricaoSigno
+    const descricaoSolar = getDescricaoSigno(signoSolar);
+    const descricaoLua = getDescricaoSigno(signoLua);
+    const descricaoAscendente = getDescricaoSigno(ascendente);
+
+    // Obtém o elemento onde os resultados serão exibidos e insere o resultado formatado
     const resultadoDiv = document.getElementById('resultadoMapaAstral');
     resultadoDiv.innerHTML = `
         <h2>Mapa Astral de ${nome}</h2>
         <p><strong>Data de Nascimento:</strong> ${dataNascimento}</p>
-        <p><strong>Hora de Nascimento:</strong> ${horaNascimento || "Não especificada"}</p>
+        <p><strong>Hora de Nascimento:</strong> ${horaNascimento}</p>
         <p><strong>Local de Nascimento:</strong> ${localNascimento}</p>
-        <p><strong>Signo Solar:</strong> ${signoSolar}</p>
-        <p><strong>Descrição:</strong> ${getDescricaoSigno(signoSolar)}</p>
+
+        <p><strong>Signo Solar:</strong> ${signoSolar} - ${descricaoSolar}</p>
+        <p><strong>Signo Lunar:</strong> ${signoLua} - ${descricaoLua}</p>
+        <p><strong>Ascendente:</strong> ${ascendente} - ${descricaoAscendente}</p>
     `;
 }
 
-// Função que retorna uma breve descrição com base no signo
+// Função para retornar uma breve descrição com base no signo fornecido
 function getDescricaoSigno(signo) {
-    // Dicionário de descrições para cada signo
+    // Define um objeto com descrições para cada signo
     const descricoes = {
         "Áries": "Signo de Fogo, caracterizado pela iniciativa e coragem.",
         "Touro": "Signo de Terra, valorizador da estabilidade e conforto.",
@@ -137,6 +161,6 @@ function getDescricaoSigno(signo) {
         "Peixes": "Signo de Água, sensível e compassivo."
     };
 
-    // Retorna a descrição correspondente ao signo, ou uma mensagem padrão se o signo não estiver listado
+    // Retorna a descrição do signo ou uma mensagem padrão se o signo não for encontrado
     return descricoes[signo] || "Descrição não disponível.";
 }
