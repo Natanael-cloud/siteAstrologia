@@ -225,3 +225,21 @@ footer {
   transform: scale(1.03);
   box-shadow: 0 4px 8px rgba(255, 175, 123, 0.5);
 }
+
+.mapa-astral-form {
+  text-align: center;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#resultadoMapaAstral {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
