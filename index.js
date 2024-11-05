@@ -64,3 +64,79 @@ function criarCometaComCauda() {
 
 // Inicia o cometa ao carregar a página
 window.onload = criarCometaComCauda;
+
+
+// Função para calcular o signo solar com base na data de nascimento fornecida
+function calcularSignoSolar(dataNascimento) {
+    // Converte a data de nascimento para um objeto Date do JavaScript
+    const data = new Date(dataNascimento);
+
+    // Extrai o dia e o mês da data de nascimento
+    const dia = data.getDate() + 1; // Ajuste do dia para compensar o início do mês em 0
+    const mes = data.getMonth() + 1; // Ajuste do mês para compensar que o mês começa em 0 no JavaScript
+
+    // Verifica o intervalo de cada signo e retorna o nome correspondente
+    if ((mes == 3 && dia >= 21) || (mes == 4 && dia <= 19)) return "Áries";
+    if ((mes == 4 && dia >= 20) || (mes == 5 && dia <= 20)) return "Touro";
+    if ((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) return "Gêmeos";
+    if ((mes == 6 && dia >= 21) || (mes == 7 && dia <= 22)) return "Câncer";
+    if ((mes == 7 && dia >= 23) || (mes == 8 && dia <= 22)) return "Leão";
+    if ((mes == 8 && dia >= 23) || (mes == 9 && dia <= 22)) return "Virgem";
+    if ((mes == 9 && dia >= 23) || (mes == 10 && dia <= 22)) return "Libra";
+    if ((mes == 10 && dia >= 23) || (mes == 11 && dia <= 21)) return "Escorpião";
+    if ((mes == 11 && dia >= 22) || (mes == 12 && dia <= 21)) return "Sagitário";
+    if ((mes == 12 && dia >= 22) || (mes == 1 && dia <= 19)) return "Capricórnio";
+    if ((mes == 1 && dia >= 20) || (mes == 2 && dia <= 18)) return "Aquário";
+    if ((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) return "Peixes";
+}
+
+// Função principal para gerar o mapa astral
+function gerarMapaAstral() {
+    // Captura os valores dos campos do formulário
+    const nome = document.getElementById('nome').value;
+    const dataNascimento = document.getElementById('dataNascimento').value;
+    const horaNascimento = document.getElementById('horaNascimento').value;
+    const localNascimento = document.getElementById('localNascimento').value;
+
+    // Verifica se os campos obrigatórios foram preenchidos
+    if (!nome || !dataNascimento || !localNascimento) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return; // Sai da função se houver campos obrigatórios em branco
+    }
+
+    // Calcula o signo solar usando a data de nascimento
+    const signoSolar = calcularSignoSolar(dataNascimento);
+
+    // Exibe o resultado do mapa astral
+    const resultadoDiv = document.getElementById('resultadoMapaAstral');
+    resultadoDiv.innerHTML = `
+        <h2>Mapa Astral de ${nome}</h2>
+        <p><strong>Data de Nascimento:</strong> ${dataNascimento}</p>
+        <p><strong>Hora de Nascimento:</strong> ${horaNascimento || "Não especificada"}</p>
+        <p><strong>Local de Nascimento:</strong> ${localNascimento}</p>
+        <p><strong>Signo Solar:</strong> ${signoSolar}</p>
+        <p><strong>Descrição:</strong> ${getDescricaoSigno(signoSolar)}</p>
+    `;
+}
+
+// Função que retorna uma breve descrição com base no signo
+function getDescricaoSigno(signo) {
+    // Dicionário de descrições para cada signo
+    const descricoes = {
+        "Áries": "Signo de Fogo, caracterizado pela iniciativa e coragem.",
+        "Touro": "Signo de Terra, valorizador da estabilidade e conforto.",
+        "Gêmeos": "Signo de Ar, comunicativo e adaptável.",
+        "Câncer": "Signo de Água, emocional e ligado à família.",
+        "Leão": "Signo de Fogo, criativo e cheio de energia.",
+        "Virgem": "Signo de Terra, prático e detalhista.",
+        "Libra": "Signo de Ar, amante da harmonia e da justiça.",
+        "Escorpião": "Signo de Água, intenso e misterioso.",
+        "Sagitário": "Signo de Fogo, busca por liberdade e aventura.",
+        "Capricórnio": "Signo de Terra, ambicioso e responsável.",
+        "Aquário": "Signo de Ar, inovador e idealista.",
+        "Peixes": "Signo de Água, sensível e compassivo."
+    };
+
+    // Retorna a descrição correspondente ao signo, ou uma mensagem padrão se o signo não estiver listado
+    return descricoes[signo] || "Descrição não disponível.";
+}
