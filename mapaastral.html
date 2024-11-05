@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Astral - Astrologia Mística</title>
-    <link rel="stylesheet" href="style.cssS">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -98,6 +98,32 @@
             </div>
         </div>
     </section>
+
+    <!-- Formulário de Mapa Astral -->
+    <section class="mapa-astral-form">
+      <h1>Mapa Astral Interativo</h1>
+      <form id="formMapaAstral">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+
+          <label for="dataNascimento">Data de Nascimento:</label>
+          <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+          <label for="horaNascimento">Hora de Nascimento:</label>
+          <input type="time" id="horaNascimento" name="horaNascimento">
+
+          <label for="localNascimento">Local de Nascimento:</label>
+          <input type="text" id="localNascimento" name="localNascimento" required>
+
+          <button type="button" onclick="gerarMapaAstral()">Calcular Mapa Astral</button>
+      </form>
+
+
+      <div id="resultadoMapaAstral" class="resultado-mapa-astral"></div>
+  </section>
+
+  <script src="index.js"></script>
+
 
     <!-- Footer -->
     <footer>
