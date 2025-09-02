@@ -1,52 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bem-vindo ao Universo da Astrologia. Descubra mais sobre seu signo, compatibilidades e previsões astrológicas.">
+    <meta name="keywords" content="astrologia, signos, compatibilidade, previsões astrológicas, mapa astral">
+    <meta name="author" content="Astrologia Mística">
     <title>Astrologia Mística</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/assets/css/style.css">
 </head>
+
 <body>
 
     <!-- Menu de navegação -->
-    <nav>
-        <a href="#inicio">Início</a>
-        <a href="signos.html">Signos</a>
-        <a href="mapaastral.html">Mapa Astral</a>
-        <a href="contato.html">Contato</a>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="signos.html">Signos</a></li>
+                <li><a href="mapaastral.html">Mapa Astral</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Introdução -->
-    <section class="intro" id="inicio">
-        <h1>Bem-vindo ao Universo da Astrologia</h1>
-        <p>
-            A astrologia é uma antiga prática que estuda as influências dos astros no comportamento e na vida das pessoas.
-            Através do seu signo, podemos descobrir tendências, características e mistérios que orientam a jornada de cada indivíduo.
-            Explore o site para saber mais sobre seu signo, compatibilidades e previsões astrológicas. Descubra como os planetas
-            e estrelas podem iluminar o caminho!
-        </p>
-    </section>
-    <section class="image-gallery">
-      <img src="imagens_index/aries.jpeg" alt="Áries">
-      <img src="imagens_index/touro.jpeg" alt="Touro">
-      <img src="imagens_index/gemeos.jpeg" alt="Gemeos">
-      <img src="imagens_index/cancer.jpeg" alt="Cancer">
-      <img src="imagens_index/leao.jpeg" alt="Leão">
-      <img src="imagens_index/virgem.jpeg" alt="Virgem">
-      <img src="imagens_index/libra.jpeg" alt="Libra">
-      <img src="imagens_index/escorpião.jpeg" alt="Escorpião">
-      <img src="imagens_index/sagitario.jpeg" alt="Sagitário">
-      <img src="imagens_index/capricornio.jpg" alt="Capricornio">
-      <img src="imagens_index/aquario.jpeg" alt="Aquario">
-      <img src="imagens_index/peixes.jpeg" alt="Peixes">
-      
-    </section>
+    <!-- Seção Introdução -->
+    <main>
+        <section class="intro" id="inicio">
+            <h1>Bem-vindo ao Universo da Astrologia</h1>
+            <p>A astrologia estuda as influências dos astros no comportamento e na vida das pessoas. Descubra o seu signo e como os astros guiam a sua jornada.</p>
+        </section>
+
+        <!-- Galeria de Signos -->
+        <section class="image-gallery">
+            <h2>Conheça os Signos</h2> <!-- Frase acima das imagens -->
+            <div class="gallery">
+                <!-- Áries -->
+                <figure>
+                    <img src="imagens_index/aries.jpeg" alt="Áries">
+                    <figcaption>Áries</figcaption>
+                </figure>
+
+                <!-- Touro -->
+                <figure>
+                    <img src="imagens_index/touro.jpeg" alt="Touro">
+                    <figcaption>Touro</figcaption>
+                </figure>
+
+                <!-- Gêmeos -->
+                <figure>
+                    <img src="imagens_index/gemeos.jpeg" alt="Gêmeos">
+                    <figcaption>Gêmeos</figcaption>
+                </figure>
+
+                <!-- Câncer -->
+                <figure>
+                    <img src="imagens_index/cancer.jpeg" alt="Câncer">
+                    <figcaption>Câncer</figcaption>
+                </figure>
+
+                <!-- Leão -->
+                <figure>
+                    <img src="imagens_index/leao.jpeg" alt="Leão">
+                    <figcaption>Leão</figcaption>
+                </figure>
+
+                <!-- Virgem -->
+                <figure>
+                    <img src="imagens_index/virgem.jpeg" alt="Virgem">
+                    <figcaption>Virgem</figcaption>
+                </figure>
+
+                <!-- Libra -->
+                <figure>
+                    <img src="imagens_index/libra.jpeg" alt="Libra">
+                    <figcaption>Libra</figcaption>
+                </figure>
+
+                <!-- Escorpião -->
+                <figure>
+                    <img src="imagens_index/escorpião.jpeg" alt="Escorpião">
+                    <figcaption>Escorpião</figcaption>
+                </figure>
+
+                <!-- Sagitário -->
+                <figure>
+                    <img src="imagens_index/sagitario.jpeg" alt="Sagitário">
+                    <figcaption>Sagitário</figcaption>
+                </figure>
+
+                <!-- Capricórnio -->
+                <figure>
+                    <img src="imagens_index/capricornio.jpg" alt="Capricórnio">
+                    <figcaption>Capricórnio</figcaption>
+                </figure>
+
+                <!-- Aquário -->
+                <figure>
+                    <img src="imagens_index/aquario.jpeg" alt="Aquário">
+                    <figcaption>Aquário</figcaption>
+                </figure>
+
+                <!-- Peixes -->
+                <figure>
+                    <img src="imagens_index/peixes.jpeg" alt="Peixes">
+                    <figcaption>Peixes</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
-        &copy; 2024 Astrologia Mística - Todos os direitos reservados.
+        <p>&copy; 2024 Astrologia Mística - Todos os direitos reservados.</p>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="src/assets/js/index.js"></script>
 </body>
+
 </html>

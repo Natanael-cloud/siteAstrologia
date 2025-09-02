@@ -1,145 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubra o mapa astral geral e as características dos signos do zodíaco. Personalize o seu mapa astral.">
+    <meta name="keywords" content="mapa astral, astrologia, signos, previsões, mapa astral personalizado">
+    <meta name="author" content="Astrologia Mística">
     <title>Mapa Astral - Astrologia Mística</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/assets/css/style.css">
 </head>
+
 <body>
 
     <!-- Menu de navegação -->
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="signos.html">Signos</a>
-        <a href="mapaastral.html">Mapa Astral</a>
-        <a href="contato.html">Contato</a>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="signos.html">Signos</a></li>
+                <li><a href="mapaastral.html">Mapa Astral</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Seção principal para o Mapa Astral -->
-    <section class="mapa-astral-section">
-        <h1>Mapa Astral Geral dos Signos do Zodíaco</h1>
-        <p>Descubra o mapa astral geral e características únicas de cada signo do zodíaco.</p>
+    <main>
+        <section class="mapa-astral-section">
+            <h1>Mapa Astral Geral dos Signos do Zodíaco</h1>
+            <p>Descubra o mapa astral geral e características únicas de cada signo do zodíaco.</p>
+           
+        </section>
 
-        <!-- Lista dos signos com seus mapas astrais -->
-        <div class="mapa-signos">
-            <!-- Áries -->
-            <div class="mapa-signo">
-                <img src="imagens_index/aries.jpeg" alt="Imagem do signo Áries">
-                <h2>♈ Áries</h2>
-                <p>Elemento: Fogo | Planeta Regente: Marte</p>
-                <p>Descrição: Áries é o signo da iniciativa, liderança e coragem. Com Marte como seu planeta regente, este signo carrega uma energia intensa, pronta para enfrentar desafios.</p>
-            </div>
-            <!-- Touro -->
-            <div class="mapa-signo">
-                <img src="imagens_index/touro.jpeg" alt="Imagem do signo Touro">
-                <h2>♉ Touro</h2>
-                <p>Elemento: Terra | Planeta Regente: Vênus</p>
-                <p>Descrição: Touro é o signo da estabilidade, sensualidade e amor pelas coisas materiais. Rege a paciência e a persistência, buscando sempre segurança e conforto.</p>
-            </div>
-            <!-- Gêmeos -->
-            <div class="mapa-signo">
-                <img src="imagens_index/gemeos.jpeg" alt="Imagem do signo Gemeos">
-                <h2>♊ Gêmeos</h2>
-                <p>Elemento: Ar | Planeta Regente: Mercúrio</p>
-                <p>Descrição: Comunicativo e adaptável, Gêmeos é o signo que adora explorar e aprender. Mercúrio rege a mente e a inteligência, tornando Gêmeos curioso e versátil.</p>
-            </div>
-            <!-- Câncer -->
-            <div class="mapa-signo">
-                 <img src="imagens_index/cancer.jpeg" alt="Imagem do signo Cancer">
-                <h2>♋ Câncer</h2>
-                <p>Elemento: Água | Planeta Regente: Lua</p>
-                <p>Descrição: Câncer é o signo da sensibilidade e do cuidado. Ligado à família e ao lar, este signo busca segurança emocional e valoriza os laços afetivos.</p>
-            </div>
-            <!-- Leão -->
-            <div class="mapa-signo">
-                <img src="imagens_index/leao.jpeg" alt="Imagem do signo Leão">
-                <h2>♌ Leão</h2>
-                <p>Elemento: Fogo | Planeta Regente: Sol</p>
-                <p>Descrição: Leão é o signo da criatividade, generosidade e autoconfiança. Rege a alegria de viver, sendo regido pelo próprio Sol, que representa o ego e a vontade.</p>
-            </div>
-            <!-- Virgem -->
-            <div class="mapa-signo">
-                <img src="imagens_index/virgem.jpeg" alt="Imagem do signo Virgem">
-                <h2>♍ Virgem</h2>
-                <p>Elemento: Terra | Planeta Regente: Mercúrio</p>
-                <p>Descrição: Virgem é o signo da organização, eficiência e precisão. Pragmático e detalhista, busca a perfeição em tudo o que faz, sendo guiado por Mercúrio.</p>
-            </div>
-            <!-- Libra -->
-            <div class="mapa-signo">
-                <img src="imagens_index/libra.jpeg" alt="Imagem do signo Libra">
-                <h2>♎ Libra</h2>
-                <p>Elemento: Ar | Planeta Regente: Vênus</p>
-                <p>Descrição: Signo do equilíbrio e da justiça, Libra é governado por Vênus e valoriza harmonia e beleza. Este signo aprecia relacionamentos e busca a paz.</p>
-            </div>
-            <!-- Escorpião -->
-            <div class="mapa-signo">
-                <img src="imagens_index/escorpião.jpeg" alt="Imagem do signo Escorpião">
-                <h2>♏ Escorpião</h2>
-                <p>Elemento: Água | Planeta Regente: Plutão</p>
-                <p>Descrição: Intenso e misterioso, Escorpião representa transformação e poder. Rege o oculto e o profundo, buscando sempre a verdade e a intensidade emocional.</p>
-            </div>
-            <!-- Sagitário -->
-            <div class="mapa-signo">
-                <img src="imagens_index/sagitario.jpeg" alt="Imagem do signo Sagitário">
-                <h2>♐ Sagitário</h2>
-                <p>Elemento: Fogo | Planeta Regente: Júpiter</p>
-                <p>Descrição: Sagitário é o signo da aventura, liberdade e expansão. Regido por Júpiter, representa o desejo de explorar o mundo e buscar a verdade.</p>
-            </div>
-            <!-- Capricórnio -->
-            <div class="mapa-signo">
-                <img src="imagens_index/capricornio.jpg" alt="Imagem do signo Capricórnio">
-                <h2>♑ Capricórnio</h2>
-                <p>Elemento: Terra | Planeta Regente: Saturno</p>
-                <p>Descrição: Capricórnio é o signo da disciplina, ambição e responsabilidade. Saturno rege este signo, trazendo foco e determinação para alcançar metas.</p>
-            </div>
-            <!-- Aquário -->
-            <div class="mapa-signo">
-                <img src="imagens_index/aquario.jpeg" alt="Imagem do signo Aquario">
-                <h2>♒ Aquário</h2>
-                <p>Elemento: Ar | Planeta Regente: Urano</p>
-                <p>Descrição: Aquário é o signo da inovação, liberdade e idealismo. Com Urano como regente, representa a busca pelo progresso e mudanças.</p>
-            </div>
-            <!-- Peixes -->
-            <div class="mapa-signo">
-                <img src="imagens_index/peixes.jpeg" alt="Imagem do signo Peixes">
-                <h2>♓ Peixes</h2>
-                <p>Elemento: Água | Planeta Regente: Netuno</p>
-                <p>Descrição: Peixes é o signo da compaixão, espiritualidade e imaginação. Guiado por Netuno, é sensível e intuitivo, buscando sempre a conexão emocional.</p>
-            </div>
-        </div>
-    </section>
+        <!-- Formulário de Mapa Astral -->
+        <section class="mapa-astral-form">
+            <h1>Mapa Astral Interativo</h1>
+            <form id="formMapaAstral">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
 
-    <!-- Formulário de Mapa Astral -->
-    <section class="mapa-astral-form">
-      <h1>Mapa Astral Interativo</h1>
-      <form id="formMapaAstral">
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" required>
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
 
-          <label for="dataNascimento">Data de Nascimento:</label>
-          <input type="date" id="dataNascimento" name="dataNascimento" required>
+                <label for="horaNascimento">Hora de Nascimento:</label>
+                <input type="time" id="horaNascimento" name="horaNascimento" required>
 
-          <label for="horaNascimento">Hora de Nascimento:</label>
-          <input type="time" id="horaNascimento" name="horaNascimento" required>
+                <label for="localNascimento">Local de Nascimento:</label>
+                <input type="text" id="localNascimento" name="localNascimento" required>
 
-          <label for="localNascimento">Local de Nascimento:</label>
-          <input type="text" id="localNascimento" name="localNascimento" required>
+                <button type="button" onclick="gerarMapaAstral()">Calcular Mapa Astral</button>
+            </form>
 
-          <button type="button" onclick="gerarMapaAstral()">Calcular Mapa Astral</button>
-      </form>
-
-      <div id="resultadoMapaAstral" class="resultado-mapa-astral"></div>
-  </section>
-
-  <script src="index.js"></script>
-
+            <div id="resultadoMapaAstral" class="resultado-mapa-astral"></div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
-        &copy; 2024 Astrologia Mística - Todos os direitos reservados.
+        <p>&copy; 2024 Astrologia Mística - Todos os direitos reservados.</p>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="src/assets/js/index.js"></script>
 </body>
+
 </html>
+
